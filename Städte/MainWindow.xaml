@@ -6,7 +6,21 @@
         xmlns:local="clr-namespace:Städte"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top">
+            <ComboBox x:Name="cmb" SelectedValuePath="Kürzel" MinWidth="130" SelectionChanged="cmb_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=Land}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </ToolBar>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem Content=""/>
+        </StatusBar>
+        <DataGrid x:Name="daten" CanUserReorderColumns="False" IsReadOnly="True" />
+    </DockPanel>
 </Window>
